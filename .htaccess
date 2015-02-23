@@ -1,0 +1,16 @@
+<IfModule mod_rewrite.c>
+	<IfModule mod_negotiation.c>
+    	Options -MultiViews
+    </IfModule>
+
+    RewriteEngine On
+
+    # Allow direct access to the following directories
+    RewriteRule ^css/|^js/|^pix|^tps - [L]
+
+    # Redirect Trailing Slashes...
+	RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+	# Handle Front Controller...
+    RewriteRule ^ index.php [L]
+</IfModule>

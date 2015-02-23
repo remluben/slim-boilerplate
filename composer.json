@@ -1,0 +1,27 @@
+{
+    "name": "remluben/slim-boilerplate",
+    "description": "Simple Slim Framework based website boilerplate with commonly used components pre-configured.",
+    "license": "WTFPL",
+    "authors": [
+        {
+            "name": "Benjamin Ulmer",
+            "email": "ulmer.benjamin@gmail.com"
+        }
+    ],
+    "require": {
+        "slim/slim": "2.5.*",
+        "slim/views": "0.1.*",
+        "twig/twig": "1.18.*",
+        "illuminate/container": "4.1.*",
+        "illuminate/filesystem": "4.1.*",
+        "illuminate/session": "4.1.*",
+        "illuminate/support": "4.1.*",
+        "phpmailer/phpmailer": "5.2.x"
+    },
+    "autoload" : {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
+
