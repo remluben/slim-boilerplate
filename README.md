@@ -79,3 +79,8 @@ It provides a simple way to add controller based routing:
     $router->get('/test/:something', function ($something) {
         echo htmlspecialchars($something);
     });
+
+##Roadmap
+
+* Form component integration
+* Environment based configuration
