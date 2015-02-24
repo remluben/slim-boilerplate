@@ -35,7 +35,7 @@ class Config
      */
     public function get($key, $default = null)
     {
-        return array_get($key, $this->data, $default);
+        return array_get($this->data, $key, $default);
     }
 
     /**

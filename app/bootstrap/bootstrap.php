@@ -28,19 +28,19 @@ $container->alias('\App\Components\Config\Config', 'config');
 
 // Slim application setup
 
-$container->singleton('Slim\\Slim', function ($container) use ($config)
+$container->singleton('Slim\\Slim', function () use ($config)
 {
     $app = new \Slim\Slim(array(
-        'debug' => true,
-        'mode' => 'development',
-        'log.enabled' => true,
-        'log.level' => \Slim\Log::DEBUG,
+        'debug' => $config->get('app.debug'),
+        'mode' => $config->get('app.mode'),
+        'log.enabled' => $config->get('app.logging.enabled'),
+        'log.level' => $config->get('app.logging.level'),
         'templates.path' => __BASE_DIR . 'app/ressources/views',
         'view' => new \Slim\Views\Twig(),
     ));
 
     $app->view()->parserOptions = array(
-        'debug' => true,
+        'debug' => $config->get('app.debug'),
         'cache' => __BASE_DIR . 'app/storage/cache/views'
     );
 
