@@ -23,6 +23,14 @@ In addition to the Slim Micro Framework, the following components are included:
     * [Database](https://github.com/illuminate/database)
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
 
+##Installation
+
+For installation execute the following commands and replace *demo* by your own application name
+
+    git clone https://github.com/remluben/slim-boilerplate.git demo
+    cd demo
+    composer update
+
 ##Docs
 
 ###Configuration
