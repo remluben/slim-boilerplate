@@ -1,7 +1,7 @@
 {
     "name": "remluben/slim-boilerplate",
     "description": "Simple Slim Framework based website boilerplate with commonly used components pre-configured.",
-    "license": "WTFPL",
+    "license": "MIT",
     "authors": [
         {
             "name": "Benjamin Ulmer",
