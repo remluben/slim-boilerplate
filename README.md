@@ -2,8 +2,6 @@
 
 A website boilerplate based on the [Slim Framework](http://www.slimframework.com/) as well as a couple of useful Laravel Framework components, which are commonly required, when developing simple websites.
 
-##About
-
 ##Why?
 
 As many frameworks provide quite a lot of components and features that seem to be overhead in small projects, I came up with using the Slim Framework.
@@ -92,3 +90,4 @@ It provides a simple way to add controller based routing:
 
 * Form component integration
 * Environment based configuration
+* Bower and Gulp integration
