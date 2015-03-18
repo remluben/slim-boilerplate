@@ -35,6 +35,7 @@ $container->singleton('Slim\\Slim', function () use ($config)
         'mode' => $config->get('app.mode'),
         'log.enabled' => $config->get('app.logging.enabled'),
         'log.level' => $config->get('app.logging.level'),
+        'log.writer' => new \App\Components\Logging\FileSystemLogWriter(__BASE_DIR . 'app/storage/logs/' . date('ymd') . '.log'),
         'templates.path' => __BASE_DIR . 'app/ressources/views',
         'view' => new \Slim\Views\Twig(),
     ));
