@@ -24,7 +24,7 @@ return array(
          |
            ------------------------------------------------------------------ */
 
-        'mode' => 'development',
+        'mode' => getenv('app.mode') ?: 'development',
 
         /* ---------------------------------------------------------------------
          |
@@ -43,7 +43,7 @@ return array(
          |
            ------------------------------------------------------------------ */
 
-        'debug' => true,
+        'debug' => getenv('app.debug') !== false ? (bool)getenv('app.debug'): true,
 
         /* ---------------------------------------------------------------------
          |
@@ -55,8 +55,8 @@ return array(
 
         'logging' => array(
 
-            'enabled' => true,
-            'level' => \Slim\Log::DEBUG,
+            'enabled' => getenv('app.logging.enabled') !== false ? (bool)getenv('app.logging.enabled'): true,
+            'level'   => \Slim\Log::DEBUG,
 
         ),
 

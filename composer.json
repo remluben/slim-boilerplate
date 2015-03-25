@@ -18,7 +18,8 @@
         "siriusphp/validation": "1.2.*",
         "slim/slim": "2.5.*",
         "slim/views": "0.1.*",
-        "twig/twig": "1.18.*"
+        "twig/twig": "1.18.*",
+        "vlucas/phpdotenv": "1.1.*"
     },
     "autoload" : {
         "psr-4": {

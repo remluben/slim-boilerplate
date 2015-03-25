@@ -14,6 +14,7 @@ After adding the components I require most of the time, I ended up with this lit
 
 In addition to the Slim Micro Framework, the following components are included:
 
+* [PHP dotenv](https://github.com/vlucas/phpdotenv)
 * [Laravel framework components](http://www.laravel.com/docs) from version 4.x, as these require PHP 5.3 only
     * [IoC Container](https://github.com/illuminate/container)
     * [Session](https://github.com/illuminate/session)
@@ -43,6 +44,14 @@ The application can be easily configured using the *app/config/config.php* file.
 There are defined a couple of configuration values by default. They can be changed as described and new configuration values may be added as required.
 
 The configuration object is available as as *$config* inside routes.php and can be injected into Controllers by using the *\App\Components\Config\Config $config* parameter.
+
+####Environment based configuration
+
+Within the application base directory exists a *.env.example* file, which can be used for environment based configuration.
+
+Simply rename the file to *.env* and adjust the settings. Settings are read from within *app/config/config.php* using PHP's *getenv()* function.
+
+For further information see: [https://github.com/vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)
 
 ###Dependency Injection
 
@@ -93,5 +102,4 @@ It provides a simple way to add controller based routing:
 
 ##Roadmap
 
-* Environment based configuration
 * Bower and Gulp integration

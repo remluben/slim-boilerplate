@@ -20,6 +20,13 @@ error_reporting(E_ALL);
 session_name('slim-boilerplate');
 session_start();
 
+// Environment based configuration
+// Allows developers using the getenv('<name>') method to fetch configuration values
+
+if (file_exists(__BASE_DIR . '.env')) {
+    Dotenv::load(__BASE_DIR);
+}
+
 // IoC container setup
 
 $container = new \Illuminate\Container\Container();
