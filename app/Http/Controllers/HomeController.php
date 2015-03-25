@@ -65,6 +65,10 @@ class HomeController extends BaseController
             return;
         }
 
+        //
+        // TODO: Subscribe the client to your newsletter list... or stuff
+        //
+
         $this->session->flash('message', 'Thanks for your request. You have successfully subscribed for our newsletter.');
         $this->app->response->redirect($this->app->urlFor('home'));
     }
