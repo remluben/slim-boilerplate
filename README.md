@@ -14,12 +14,17 @@ After adding the components I require most of the time, I ended up with this lit
 
 In addition to the Slim Micro Framework, the following components are included:
 
-* [Twig template engine](http://twig.sensiolabs.org/)
 * [Laravel framework components](http://www.laravel.com/docs) from version 4.x, as these require PHP 5.3 only
     * [IoC Container](https://github.com/illuminate/container)
     * [Session](https://github.com/illuminate/session)
     * [Database](https://github.com/illuminate/database)
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer)
+* [Sirius validation components](https://github.com/siriusphp/validation)
+* [Twig template engine](http://twig.sensiolabs.org/)
+
+Also implementing features based on:
+
+* [Jeffrey Ways Laracasts Validation library](https://github.com/laracasts/Validation)
 
 ##Installation
 

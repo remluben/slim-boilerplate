@@ -14,6 +14,12 @@ require __BASE_DIR . 'vendor/autoload.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+// Start native session to get a session id for the Laravel session store and
+// filesystem session handler
+
+session_name('slim-boilerplate');
+session_start();
+
 // IoC container setup
 
 $container = new \Illuminate\Container\Container();
@@ -28,7 +34,7 @@ $container->alias('\App\Components\Config\Config', 'config');
 
 // Slim application setup
 
-$container->singleton('Slim\\Slim', function () use ($config)
+$container->singleton('Slim\\Slim', function ($container) use ($config)
 {
     $app = new \Slim\Slim(array(
         'debug' => $config->get('app.debug'),
@@ -40,6 +46,8 @@ $container->singleton('Slim\\Slim', function () use ($config)
         'view' => new \Slim\Views\Twig(),
     ));
 
+
+    // Twig template engine setup
     $app->view()->parserOptions = array(
         'debug' => $config->get('app.debug'),
         'cache' => __BASE_DIR . 'app/storage/cache/views'
@@ -48,6 +56,15 @@ $container->singleton('Slim\\Slim', function () use ($config)
     $app->view()->parserExtensions = array(
         new \Slim\Views\TwigExtension(),
     );
+
+    // Laravel session component start and shutdown configuration
+    $app->hook('slim.before', function ($container) use ($container) {
+        $container->make('session')->start();
+    });
+
+    $app->hook('slim.after.router', function ($container) use ($container) {
+        $container->make('session')->save();
+    });
 
     return $app;
 });
@@ -78,11 +95,19 @@ $container->alias('Illuminate\\Filesystem\\Filesystem', 'file');
 
 $container->singleton('Illuminate\\Session\\Store', function ($container) {
     $handler = new \Illuminate\Session\FileSessionHandler(
-        $container->make('filesystem'),
+        $container->make('file'),
         __BASE_DIR . 'app/storage/sessions'
     );
 
-    return new \Illuminate\Session\Store('page-boilerplate', $handler);
+    return new \Illuminate\Session\Store('slim-boilerplate', $handler, session_id());
+});
+
+$container->alias('Illuminate\\Session\\Store', 'session');
+
+// Use the Sirius validation library for form validation
+
+$container->singleton('App\\Components\\Validation\\FactoryInterface', function () {
+    return new \App\Components\Validation\Sirius\SiriusValidatorFactory;
 });
 
 // additional globally available components

@@ -12,6 +12,7 @@
 // Defining a route using a controller
 
 $router->get('/', 'HomeController::index')->name('home');
+$router->post('/', 'HomeController::subscribe')->name('subscribe');
 
 // Using a route with a callback function
 

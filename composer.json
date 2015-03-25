@@ -9,14 +9,16 @@
         }
     ],
     "require": {
-        "slim/slim": "2.5.*",
-        "slim/views": "0.1.*",
-        "twig/twig": "1.18.*",
+        "adamwathan/form": "0.5.*",
         "illuminate/container": "4.1.*",
         "illuminate/filesystem": "4.1.*",
         "illuminate/session": "4.1.*",
         "illuminate/support": "4.1.*",
-        "phpmailer/phpmailer": "5.2.x"
+        "phpmailer/phpmailer": "5.2.*",
+        "siriusphp/validation": "1.2.*",
+        "slim/slim": "2.5.*",
+        "slim/views": "0.1.*",
+        "twig/twig": "1.18.*"
     },
     "autoload" : {
         "psr-4": {

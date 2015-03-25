@@ -6,7 +6,17 @@
     <div class="container">
         <h1>Hello, world!</h1>
         <p>This is a template for a simple marketing or informational website. It includes a large callout called a jumbotron and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more &raquo;</a></p>
+        <p>Here is a simple form for newsletter subscription.</p>
+        {% if message %}
+            <div class="alert {% if errors %}alert-danger{% else %}alert-success{% endif %}">{{ message }}</div>
+        {% endif %}
+        <form method="POST" action="{{ urlFor('subscribe') }}">
+            <div class="form-group {% if errors.email %}has-error{% endif %}">
+                <input type="text" name="email" value="" placeholder="your email address here" class="form-control"/>
+                {% if errors.email %}<span class="help-block">{{ errors.email[0] }}</small>{% endif %}
+            </div>
+            <input type="submit" class="btn btn-primary btn-lg" role="button" value="Subscribe" />
+        </form>
     </div>
 </div>
 
