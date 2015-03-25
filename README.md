@@ -93,6 +93,5 @@ It provides a simple way to add controller based routing:
 
 ##Roadmap
 
-* Form component integration
 * Environment based configuration
 * Bower and Gulp integration
