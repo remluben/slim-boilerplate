@@ -53,6 +53,15 @@ Simply rename the file to *.env* and adjust the settings. Settings are read from
 
 For further information see: [https://github.com/vlucas/phpdotenv](https://github.com/vlucas/phpdotenv)
 
+####Database
+
+There are default MSQL database credentials provided within the *app/config/config.php* file as a fallback for development systems.
+
+    host: localhost
+    database: development
+    username: user
+    password: password
+
 ###Dependency Injection
 
 The website boilerplate makes use of Laravel's *IoC (Inversion of Control)* component, which allows automatic dependency injection of Controller constructor parameters.
@@ -65,12 +74,12 @@ Let's take a look at the *HomeController*, that comes with the application by de
          * @var \Slim\Slim
          */
         private $app;
-
+    
         public function __construct(\Slim\Slim $app) // automatically provided by Laravel's IoC container
         {
             $this->app = $app;
         }
-
+    
         /**
          * Show the home page
          */
@@ -94,11 +103,46 @@ It provides a simple way to add controller based routing:
     // The base namespace \App\Http\Controllers\ is set within the app/boilerplate/boilerplate.php file
     // \App\Http\Controllers\HomeController
     $router->get('/home', 'HomeController::index');
-
+    
     // A simple Slim route using the Router component
     $router->get('/test/:something', function ($something) {
         echo htmlspecialchars($something);
     });
+
+###Database
+
+The Laravel database component can be easily injected into Controllers:
+
+    class ExampleController extends BaseController
+    {
+        /**
+         * @var \Slim\Slim
+         */
+        private $app;
+    
+        /**
+         * @var \Illuminate\Database\Capsule\Manager
+         */
+        private $db;
+    
+        public function __construct(
+            \Slim\Slim $app,
+            \Illuminate\Database\Capsule\Manager $db
+        ) {
+            $this->app = $app;
+            $this->db = $db;
+        }
+    
+        /**
+         * Show the home page
+         */
+        public function indexAction()
+        {
+            $this->app->render('home.twig');
+        }
+    }
+
+For further information on how to use the database object see https://github.com/laravel/docs/blob/4.1/database.md
 
 ##Roadmap
 
