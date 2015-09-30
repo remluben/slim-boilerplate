@@ -10,6 +10,7 @@
     ],
     "require": {
         "adamwathan/form": "0.5.*",
+        "illuminate/database": "4.1.*",
         "illuminate/container": "4.1.*",
         "illuminate/filesystem": "4.1.*",
         "illuminate/session": "4.1.*",

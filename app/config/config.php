@@ -64,6 +64,34 @@ return array(
 
     /* -------------------------------------------------------------------------
      |
+     | Database configuration
+     |
+     | Use to set commonly required values for database connection
+     |
+       ---------------------------------------------------------------------- */
+
+    'database' => array(
+
+        'driver' => getenv('database.driver') !== false ? getenv('database.driver') : 'mysql',
+
+        'host' => getenv('database.host') !== false ? getenv('database.host') : 'localhost',
+
+        'database' => getenv('database.database') !== false ? getenv('database.database') : 'development',
+
+        'username' => getenv('database.username') !== false ? getenv('database.username') : 'user',
+
+        'password' => getenv('database.password') !== false ? getenv('database.password') : 'password',
+
+        'charset' => getenv('database.charset') !== false ? getenv('database.charset') : 'utf8',
+
+        'collation' => getenv('database.collation') !== false ? getenv('database.collation') : 'utf8_unicode_ci',
+
+        'prefix' => getenv('database.prefix') !== false ? getenv('database.prefix') : '',
+
+    ),
+
+    /* -------------------------------------------------------------------------
+     |
      | Mail configuration
      |
      | Use to set commonly required values for mail handling.

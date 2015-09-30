@@ -117,6 +117,43 @@ $container->singleton('App\\Components\\Validation\\FactoryInterface', function 
     return new \App\Components\Validation\Sirius\SiriusValidatorFactory;
 });
 
+// Events component
+
+$container->singleton('Illuminate\\Events\\Dispatcher', function ($container) {
+    return new \Illuminate\Events\Dispatcher($container);
+});
+
+$container->alias('Illuminate\\Events\\Dispatcher', 'events');
+
+// Database component
+
+$capsule = new Illuminate\Database\Capsule\Manager;
+
+$capsule->addConnection([
+    'driver'    => $config->get('database.driver'),
+    'host'      => $config->get('database.host'),
+    'database'  => $config->get('database.database'),
+    'username'  => $config->get('database.username'),
+    'password'  => $config->get('database.password'),
+    'charset'   => $config->get('database.charset'),
+    'collation' => $config->get('database.collation'),
+    'prefix'    => $config->get('database.prefix'),
+]);
+
+// Set the event dispatcher used by Eloquent models... (optional)
+$capsule->setEventDispatcher($container->make('Illuminate\\Events\\Dispatcher'));
+
+// Make this Capsule instance available globally via static methods... (optional)
+$capsule->setAsGlobal();
+
+// Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
+$capsule->bootEloquent();
+
+
+$container->instance('Illuminate\\Database\\Capsule\\Manager', $capsule);
+
+$container->alias('Illuminate\\Database\\Capsule\\Manager', 'db');
+
 // additional globally available components
 
 /**
