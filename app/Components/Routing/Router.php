@@ -48,8 +48,9 @@ class Router
 
     public function __call($name, $arguments)
     {
-        if ($this->routeCallableIsAControllerAction($arguments[1])) {
-            $arguments[1] = $this->getControllerRouteCallableArgument($arguments[1]);
+        $last = count($arguments) - 1;
+        if ($this->routeCallableIsAControllerAction($arguments[$last])) {
+            $arguments[$last] = $this->getControllerRouteCallableArgument($arguments[$last]);
         }
 
         return call_user_func_array(array($this->app, $name), $arguments);
