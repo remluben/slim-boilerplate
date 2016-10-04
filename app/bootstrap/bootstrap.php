@@ -49,7 +49,7 @@ $container->singleton('Slim\\Slim', function ($container) use ($config)
         'log.enabled' => $config->get('app.logging.enabled'),
         'log.level' => $config->get('app.logging.level'),
         'log.writer' => new \App\Components\Logging\FileSystemLogWriter(__BASE_DIR . 'app/storage/logs/' . date('ymd') . '.log'),
-        'templates.path' => __BASE_DIR . 'app/ressources/views',
+        'templates.path' => __BASE_DIR . 'app/resources/views',
         'view' => new \Slim\Views\Twig(),
     ));
 
