@@ -40,10 +40,10 @@ class SiriusValidatorFactory implements FactoryInterface
                     $options = null;
                 }
 
-                $messages = isset($messages[$field]) && isset($messages[$field][$rule]) ?
+                $ruleMessages = isset($messages[$field]) && isset($messages[$field][$rule]) ?
                     $messages[$field][$rule] : null;
 
-                $validator->add($field, $rule, $options, $messages);
+                $validator->add($field, $rule, $options, $ruleMessages);
             }
         }
 
