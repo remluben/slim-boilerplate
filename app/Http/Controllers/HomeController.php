@@ -72,4 +72,4 @@ class HomeController extends BaseController
         $this->session->flash('message', 'Thanks for your request. You have successfully subscribed for our newsletter.');
         $this->app->response->redirect($this->app->urlFor('home'));
     }
-} 
+}

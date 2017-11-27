@@ -9,12 +9,12 @@
         }
     ],
     "require": {
-        "adamwathan/form": "0.5.*",
-        "illuminate/database": "4.1.*",
-        "illuminate/container": "4.1.*",
-        "illuminate/filesystem": "4.1.*",
-        "illuminate/session": "4.1.*",
-        "illuminate/support": "4.1.*",
+        "illuminate/container": "5.5.*",
+        "illuminate/database": "5.5.*",
+        "illuminate/events": "5.5.*",
+        "illuminate/filesystem": "5.5.*",
+        "illuminate/session": "5.5.*",
+        "illuminate/support": "5.5.*",
         "phpmailer/phpmailer": "5.2.*",
         "siriusphp/validation": "1.2.*",
         "slim/slim": "2.5.*",

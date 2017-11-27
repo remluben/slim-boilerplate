@@ -19,6 +19,9 @@ error_reporting(E_ALL);
 
 session_name('slim-boilerplate');
 session_start();
+if(strlen(session_id()) != 40) {
+    session_id(str_random(40)); // Illuminate/Session/Store expects a 40 chars session id, otherwise it creates its own
+}
 
 // Environment based configuration
 // Allows developers using the getenv('<name>') method to fetch configuration values
@@ -65,11 +68,11 @@ $container->singleton('Slim\\Slim', function ($container) use ($config)
     );
 
     // Laravel session component start and shutdown configuration
-    $app->hook('slim.before', function ($container) use ($container) {
+    $app->hook('slim.before', function () use ($container) {
         $container->make('session')->start();
     });
 
-    $app->hook('slim.after.router', function ($container) use ($container) {
+    $app->hook('slim.after.router', function () use ($container) {
         $container->make('session')->save();
     });
 
@@ -103,7 +106,8 @@ $container->alias('Illuminate\\Filesystem\\Filesystem', 'file');
 $container->singleton('Illuminate\\Session\\Store', function ($container) {
     $handler = new \Illuminate\Session\FileSessionHandler(
         $container->make('file'),
-        __BASE_DIR . 'app/storage/sessions'
+        __BASE_DIR . 'app/storage/sessions',
+        1440 // = 24h = 1d
     );
 
     return new \Illuminate\Session\Store('slim-boilerplate', $handler, session_id());
