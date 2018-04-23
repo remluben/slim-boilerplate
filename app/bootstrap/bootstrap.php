@@ -76,6 +76,10 @@ $container->singleton('Slim\\Slim', function ($container) use ($config)
         $container->make('session')->save();
     });
 
+    $app->notFound(function () use ($app) {
+        $app->render('_errors/404.twig');
+    });
+
     return $app;
 });
 
