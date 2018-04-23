@@ -19,8 +19,11 @@ error_reporting(E_ALL);
 
 session_name('slim-boilerplate');
 session_start();
-if(strlen(session_id()) != 40) {
-    session_id(str_random(40)); // Illuminate/Session/Store expects a 40 chars session id, otherwise it creates its own
+
+if(strlen(session_id()) != 40) { // Illuminate/Session/Store expects a 40 chars session id, otherwise it creates its own
+    session_destroy();
+    session_id(str_random(40));
+    session_start();
 }
 
 // Environment based configuration
