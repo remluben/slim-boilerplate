@@ -148,6 +148,16 @@ The Laravel database component can be easily injected into Controllers:
 
 For further information on how to use the database object see https://github.com/laravel/docs/blob/4.1/database.md
 
+## Views
+
+The installation of the [Slim Views](https://github.com/slimphp/Slim-Views) extension allows the use of the following helper functions inside views:
+
+* urlFor
+* siteUrl
+* baseUrl
+* currentUrl
+
 ## Roadmap
 
+* Additional helpful boilerplate code for various use cases
 * Bower and Gulp integration
