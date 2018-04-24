@@ -13,7 +13,7 @@
         <form method="POST" action="{{ urlFor('subscribe') }}">
             <div class="form-group {% if errors.email %}has-error{% endif %}">
                 <input type="text" name="email" value="" placeholder="your email address here" class="form-control"/>
-                {% if errors.email %}<span class="help-block">{{ errors.email[0] }}</small>{% endif %}
+                {% if errors.email %}<small class="help-block">{{ errors.email[0] }}</small>{% endif %}
             </div>
             <input type="submit" class="btn btn-primary btn-lg" role="button" value="Subscribe" />
         </form>
