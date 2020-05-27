@@ -15,7 +15,7 @@
         "illuminate/filesystem": "5.5.*",
         "illuminate/session": "5.5.*",
         "illuminate/support": "5.5.*",
-        "phpmailer/phpmailer": "5.2.*",
+        "phpmailer/phpmailer": "6.1.*",
         "siriusphp/validation": "1.2.*",
         "slim/slim": "2.5.*",
         "slim/views": "0.1.*",
