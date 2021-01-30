@@ -1,3 +1,6 @@
+
+> **NOTE:** This project is archived and not updated anymore. Please simply use any of the awesome up-to-date PHP frameworks out there, i.e. [Laravel](https://www.laravel.com) 
+
 # Website Boilerplate
 
 A website boilerplate based on the [Slim Framework](http://www.slimframework.com/) as well as a couple of useful Laravel Framework components, which are commonly required, when developing simple websites.
